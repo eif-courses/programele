@@ -56,9 +56,6 @@ class UserViewModel @Inject constructor(
                 token = GoogleTokenId(state.token)
             )
             resultChannel.send(result)
-
-            ServiceLocator.preferencesManager.saveData("token","labas")
-
             state = state.copy(isLoading = false)
         }
     }

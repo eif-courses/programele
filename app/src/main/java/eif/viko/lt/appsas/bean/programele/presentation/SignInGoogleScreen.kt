@@ -92,7 +92,7 @@ fun SignInGoogleScreen(viewModel: UserViewModel = hiltViewModel()) {
         Spacer(modifier = Modifier.height(20.dp))
 
 
-        Text(text = "Hello ${ServiceLocator.preferencesManager.getData("token", "unknown")}")
+        Text(text = "Hello ${ServiceLocator.preferencesManager.getData("access_token", "unknown")}")
 
 //        Spacer(modifier = Modifier.height(20.dp))
 
