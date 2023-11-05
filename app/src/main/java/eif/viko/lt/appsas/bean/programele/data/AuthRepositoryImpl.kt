@@ -35,39 +35,10 @@ class AuthRepositoryImpl @Inject constructor(
 
     override fun authenticate(): Flow<Resource<List<User>>> = flow {
 
-
         emit(Resource.Loading())
         val token = ServiceLocator.preferencesManager.getData("access_token", "")
         val remoteData = googleSignInService.authenticate("Bearer $token")
         emit(Resource.Success(data = remoteData))
 
     }
-
-//        return try {
-//            // TODO IMPLEMENT CHECKING IF TOKEN IS VALID
-//
-//            val token = ServiceLocator.preferencesManager.getData("access_token", "")
-//            if (token == "") {
-//                return AuthResult.Unauthorized()
-//            }
-//            RetrofitInstance.api.authenticate("Bearer $token")
-//
-//
-////            val token = prefs.getString("jwt", null) ?: return AuthResult.Unauthorized()
-////            api.authenticate("Bearer $token")
-//            AuthResult.Authorized()
-//        } catch (e: HttpException) {
-//            if (e.code() == 401) {
-//                AuthResult.Unauthorized()
-//            } else {
-//                e.printStackTrace()
-//                AuthResult.UnknownError()
-//            }
-//        } catch (e: Exception) {
-//            e.printStackTrace()
-//            AuthResult.UnknownError()
-//        }
-//    }
-
-
 }

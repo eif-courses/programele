@@ -8,11 +8,6 @@ import retrofit2.http.Header
 import retrofit2.http.POST
 
 
-
-
-
-
-
 interface GoogleSignInService {
     @POST("api/verify")
     suspend fun getAccessToken(@Body token: GoogleTokenId): AccessTokenFromServer
