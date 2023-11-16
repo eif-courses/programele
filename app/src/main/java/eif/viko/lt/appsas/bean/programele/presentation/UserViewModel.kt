@@ -9,7 +9,6 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import eif.viko.lt.appsas.bean.programele.domain.models.GoogleTokenId
 import eif.viko.lt.appsas.bean.programele.domain.repositories.AuthRepository
 import eif.viko.lt.appsas.bean.programele.domain.utils.AuthResult
-import eif.viko.lt.appsas.bean.programele.domain.utils.ServiceLocator
 import eif.viko.lt.faculty.app.domain.util.Resource
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.launchIn
@@ -32,7 +31,7 @@ class UserViewModel @Inject constructor(
     val authResults = resultChannel.receiveAsFlow()
 
     init {
-        getAllUsers()
+        //getAllUsers()
     }
 
 
