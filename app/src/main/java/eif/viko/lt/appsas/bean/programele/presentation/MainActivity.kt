@@ -44,7 +44,6 @@ class MainActivity : ComponentActivity() {
         ServiceLocator.preferencesManager = PreferencesManager(applicationContext)
 
 
-
         setContent {
             ProgrameleTheme {
                 // A surface container using the 'background' color from the theme
@@ -53,12 +52,6 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
 
-
-                    val temp = ServiceLocator.preferencesManager.getData("access_token", "nera")
-                    println("KOSMOSASSSSSSSSSSSSSSSSSSSSSSSSSS "+temp)
-                    
-                    Text(text = temp)
-                    
                     BottomNavigationBar()
                     // SignInGoogleScreen()
                 }

@@ -6,6 +6,7 @@ import eif.viko.lt.appsas.bean.programele.domain.utils.ServiceLocator
 
 @Composable
 fun ProfileScreen() {
-    Text(text = "Hello ${ServiceLocator.preferencesManager.getData("access_token", "unknown")}")
+    Text(text = "Profile screen")
+//    Text(text = "Hello ${ServiceLocator.preferencesManager.getData("access_token", "unknown")}")
 
 }

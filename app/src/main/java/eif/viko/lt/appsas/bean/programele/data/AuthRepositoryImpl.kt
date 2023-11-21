@@ -19,16 +19,9 @@ class AuthRepositoryImpl @Inject constructor(
         return try {
 
             val response = googleSignInService.getAccessToken(token)
-
-//            println("GUGLEKODAS" + response.access_token)
-
             ServiceLocator.preferencesManager.saveData("access_token", response.access_token)
 
-//            val temp = ServiceLocator.preferencesManager.getData("access_token", "DINGO REIKSME")
-//            println("KODAS PO SETINIMO " + temp);
-
             AuthResult.Authorized()
-
         } catch (e: HttpException) {
             if (e.code() == 401) {
                 AuthResult.Unauthorized()
