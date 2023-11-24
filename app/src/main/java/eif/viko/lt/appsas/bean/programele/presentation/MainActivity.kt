@@ -24,7 +24,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.navigation.NavController
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -33,7 +32,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import eif.viko.lt.appsas.bean.programele.domain.utils.PreferencesManager
 import eif.viko.lt.appsas.bean.programele.domain.utils.ServiceLocator
 import eif.viko.lt.appsas.bean.programele.ui.theme.ProgrameleTheme
-import eif.viko.lt.faculty.app.domain.util.Route
+import eif.viko.lt.appsas.bean.programele.domain.utils.Route
 
 // https://www.youtube.com/watch?v=QpaTcx2nnHM
 @AndroidEntryPoint
@@ -52,8 +51,8 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
 
-                    BottomNavigationBar()
-                    // SignInGoogleScreen()
+                     BottomNavigationBar()
+                     //SignInGoogleScreen()
                 }
             }
         }
@@ -91,10 +90,11 @@ class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
     fun BottomNavigationBar() {
-        var navigationSelectedItem by remember {
-            mutableStateOf(0)
-        }
-        val navController = rememberNavController()
+        var navigationSelectedItem by remember { mutableStateOf(0) }
+        val navController = rememberNavController() // router
+
+
+
         Scaffold(
             modifier = Modifier.fillMaxSize(),
             bottomBar = {
@@ -133,15 +133,17 @@ class MainActivity : ComponentActivity() {
                 modifier = Modifier.padding(paddingValues = paddingValues)
             ) {
                 composable(Route.AUTH_SCREEN) {
-                    SignInGoogleScreen()
-
-//                    SignInGoogleScreen(navController)
+                    //SignInGoogleScreen()
+                    SignInGoogleScreen(navController)
                 }
                 composable(Route.SEARCH_SCREEN) {
-                    SearchScreen()
+                    SearchScreen(navController)
 //                    SearchScreen(
 //                        navController
 //                    )
+                }
+                composable(Route.HOME_SCREEN) {
+                    HomeScreen(navController)
                 }
                 composable(Route.PROFILE_SCREEN) {
                     ProfileScreen()

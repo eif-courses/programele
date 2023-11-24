@@ -1,0 +1,94 @@
+[
+  {
+    "ID": 1,
+    "name": "Pienas",
+    "price": "2",
+    "quantity": "10"
+  },
+  {
+    "ID": 2,
+    "name": "Sūris",
+    "price": "4",
+    "quantity": "22"
+  },
+  {
+    "ID": 3,
+    "name": "Duona",
+    "price": "3",
+    "quantity": "33"
+  },
+  {
+    "ID": 4,
+    "name": "Varškė",
+    "price": "2",
+    "quantity": "44"
+  },
+  {
+    "ID": 5,
+    "name": "Cukrus",
+    "price": "2",
+    "quantity": "112"
+  }
+]
+
+
+# Create new user
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+"name": "John",
+"email": "m.gzegozevskis@gmail.com",
+"password": "123456"
+}
+
+###
+
+# curl -X POST -H "Content-Type: application/json" -d '{"username": "john_doe", "password": "password123"}' http://localhost:8080/signin
+POST http://localhost:8080/api/auth/signin
+Content-Type: application/json
+
+{
+"username": "m.gzegozevskis@gmail.com",
+"password": "123456"
+}
+
+###
+
+# curl -X POST
+#  -H "Content-Type: application/json"
+#  -d '{"token": "YOUR_GOOGLE_ID_TOKEN"}'
+#  http://your-api-endpoint/verify
+POST https://restapijwttemplate-production.up.railway.app/api/verify
+Content-Type: application/json
+
+{
+"token": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImY4MzNlOGE3ZmUzZmU0Yjg3ODk0ODIxOWExNjg0YWZhMzczY2E4NmYiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiIxMTkxNTA3NjY4OTgtNTVqZDNqOWU1MmI1NHVibG9paDFmaHBsZmhlM25nNzQuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiIxMTkxNTA3NjY4OTgtMnVmdHQwbmU5azhmcnZpaWxiZmQ4YXN2bWdvazc5cm4uYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMDU3NjQ4MTczNjAxNDYyMzM1MTEiLCJlbWFpbCI6InBhdWtzdGlzMTEyQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiTWFyaXVzIEciLCJwaWN0dXJlIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jS05NLTNmNGtCZUlpUEZERUQwVDZNY0FnbEZSLTdrU0xONDkwbHkxV3hMPXM5Ni1jIiwiZ2l2ZW5fbmFtZSI6Ik1hcml1cyIsImZhbWlseV9uYW1lIjoiRyIsImxvY2FsZSI6ImVuIiwiaWF0IjoxNzAwMTczMzEwLCJleHAiOjE3MDAxNzY5MTB9.fbZhimwFZa5gbzwCrta3_bP86OOh00gibiX7_ynQ1YBZGSQzCVlcZOcPjaTbBMnURnRAYwTOKtKiDdkVECl8MaGrqv5lIwsbBzJPGrzmO-2Xy8uFHB4YMm94F4ME9rUto2H9UVH6F_UjJCgJlyYkx3uH2tB6Et_mwQ64mqe8b7qEymi-L8fY573XDnezLdQbjAV0KBME7xueYEmCusYNyEpb9o97uhd2zh19_pfipY3EKAmqgj_r_H6ObWvMZh-WmJIVOdeqVy_tluQOhW-xon3Hhw6NKmFDaK5FoQgDLNQVR02ESr11gF9PPo1z2TOlVGAcPsqI0RiZ5FjZezH3-Q"
+}
+
+###
+
+###
+
+# curl -X DELETE http://localhost:8080/users/123
+DELETE http://localhost:8080/api/users/2
+
+###
+
+
+# curl -X GET http://localhost:8080/api/users -H "Authorization: Bearer your-access-token"
+GET http://localhost:8080/api/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJtLmd6ZWdvemV2c2tpc0BnbWFpbC5jb20ifQ.U4FxMWwFLq13ntAXNy8yK6VfdGk5FjZGt6WCsaj5_yA
+###
+
+GET http://localhost:8080/api/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJtLmd6ZWdvemV2c2tpc0BnbWFpbC5jb20ifQ.U4FxMWwFLq13ntAXNy8yK6VfdGk5FjZGt6WCsaj5_yA
+###
+
+
+GET http://localhost:8080/api/products
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJtLmd6ZWdvemV2c2tpc0BnbWFpbC5jb20ifQ.U4FxMWwFLq13ntAXNy8yK6VfdGk5FjZGt6WCsaj5_yA
+
+
+
+
