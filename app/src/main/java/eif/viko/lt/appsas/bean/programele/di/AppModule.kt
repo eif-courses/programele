@@ -5,7 +5,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import eif.viko.lt.appsas.bean.programele.data.AuthRepositoryImpl
-import eif.viko.lt.appsas.bean.programele.data.GoogleSignInService
+import eif.viko.lt.appsas.bean.programele.data.PersonalBackendApi
 import eif.viko.lt.appsas.bean.programele.domain.repositories.AuthRepository
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -27,21 +27,21 @@ object AppModule {
     @Singleton
     fun providesRetrofitBuilder(): Retrofit.Builder {
         return Retrofit.Builder()
-            .baseUrl(GoogleSignInService.BASE_URL)
+            .baseUrl(PersonalBackendApi.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
     }
     @Provides
     @Singleton
-    fun providesGoogleSignInService(retrofitBuilder: Retrofit.Builder): GoogleSignInService {
+    fun providesGoogleSignInService(retrofitBuilder: Retrofit.Builder): PersonalBackendApi {
         return retrofitBuilder
             .build()
-            .create(GoogleSignInService::class.java)
+            .create(PersonalBackendApi::class.java)
     }
 
     @Provides
     @Singleton
     fun provideAuthRepository(
-        api: GoogleSignInService,
+        api: PersonalBackendApi,
     ): AuthRepository {
         return AuthRepositoryImpl(api)
     }
