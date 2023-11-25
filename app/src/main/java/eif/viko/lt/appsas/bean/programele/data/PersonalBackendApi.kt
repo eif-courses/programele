@@ -1,6 +1,7 @@
 package eif.viko.lt.appsas.bean.programele.data
 
 import eif.viko.lt.appsas.bean.programele.domain.models.AccessTokenFromServer
+import eif.viko.lt.appsas.bean.programele.domain.models.AuthenticationStatus
 import eif.viko.lt.appsas.bean.programele.domain.models.GoogleTokenId
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -15,7 +16,7 @@ interface PersonalBackendApi {
 
     // Tikriname ar esame autorizuoti prie rest api endpointų jeigu ne tada prašome prisijungti iš naujo su google paskyra
     @GET("api/me")
-    suspend fun me(@Header("Authorization") token: String): String
+    suspend fun me(@Header("Authorization") token: String): AuthenticationStatus
 
     // Duomenų gavimas iš rest api endpointų apie vartotojus
     @GET("api/users")
