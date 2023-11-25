@@ -29,7 +29,7 @@ class AuthViewModel @Inject constructor(
     val authResults = resultChannel.receiveAsFlow()
 
     init {
-        //me()
+        me()
         getAllProducts()
     }
 
@@ -119,7 +119,6 @@ class AuthViewModel @Inject constructor(
             }
         }.launchIn(viewModelScope)
     }
-
 
 
 }
