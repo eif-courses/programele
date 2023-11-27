@@ -26,8 +26,33 @@ interface PersonalBackendApi {
     @GET("api/products")
     suspend fun getProducts(@Header("Authorization") token: String): List<ProductDto>
 
-    @POST("api/products")
-    suspend fun addProduct(@Header("Authorization") token: String, @Body product: ProductDto): ProductDto
+    // Post ir Grupės kūrimas, komentavimas ir like'inimas
+
+
+
+
+
+
+//    groups := router.PathPrefix("/api/groups").Subrouter()
+//
+//    groups.Use(AuthMiddleware)
+//    groups.HandleFunc("", GetGroups).Methods("GET")
+//    groups.HandleFunc("/{group_id}/posts", GetGroupPostsByGroupID).Methods("GET")
+//    groups.HandleFunc("/posts", CreateNewGroupPost).Methods("POST")
+//    groups.HandleFunc("/members", JoinToGroup).Methods("POST")
+//    groups.HandleFunc("/likes", LikeGroupPost).Methods("POST")
+//    groups.HandleFunc("/posts/{post_id}/comments", GetCommentsByPostID).Methods("GET")
+//    groups.HandleFunc("/comments", CommentGroupPost).Methods("POST")
+//    groups.HandleFunc("/comments", DeleteGroupComment).Methods("DELETE")
+//    groups.HandleFunc("/{group_id}/users/{user_id}", LeaveGroup).Methods("DELETE")
+//    groups.HandleFunc("/likes", UnlikeGroupPost).Methods("DELETE")
+
+
+
+
+
+
+
 
 
 
