@@ -26,6 +26,11 @@ interface PersonalBackendApi {
     @GET("api/products")
     suspend fun getProducts(@Header("Authorization") token: String): List<ProductDto>
 
+    @POST("api/products")
+    suspend fun addProduct(@Header("Authorization") token: String, @Body product: ProductDto): ProductDto
+
+
+
     companion object {
         const val BASE_URL = "https://restapijwttemplate-production.up.railway.app/"
     }
