@@ -71,6 +71,10 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
 
+    implementation("io.coil-kt:coil-compose:2.5.0")
+
+
+
     // Widget kūrimui skirtos bibliotekos
     implementation("androidx.glance:glance-appwidget:1.0.0")
     implementation("androidx.glance:glance-material3:1.0.0")

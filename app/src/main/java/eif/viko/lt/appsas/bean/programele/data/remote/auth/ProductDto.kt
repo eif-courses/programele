@@ -1,4 +1,4 @@
-package eif.viko.lt.appsas.bean.programele.data
+package eif.viko.lt.appsas.bean.programele.data.remote.auth
 
 data class ProductDto(
     val ID: Int,

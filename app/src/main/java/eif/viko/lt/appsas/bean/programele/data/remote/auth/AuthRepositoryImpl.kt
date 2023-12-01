@@ -1,4 +1,4 @@
-package eif.viko.lt.appsas.bean.programele.data
+package eif.viko.lt.appsas.bean.programele.data.remote.auth
 
 import android.util.Log
 import eif.viko.lt.appsas.bean.programele.domain.models.GoogleTokenId
@@ -12,7 +12,7 @@ import retrofit2.HttpException
 import javax.inject.Inject
 
 class AuthRepositoryImpl @Inject constructor(
-    private val api: PersonalBackendApi
+    private val api: AuthApi
 ) : AuthRepository {
 
     override suspend fun signIn(token: GoogleTokenId): AuthResult<Unit> {
