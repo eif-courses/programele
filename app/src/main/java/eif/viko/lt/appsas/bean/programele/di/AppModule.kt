@@ -4,9 +4,14 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import eif.viko.lt.appsas.bean.programele.data.AuthRepositoryImpl
-import eif.viko.lt.appsas.bean.programele.data.PersonalBackendApi
+import eif.viko.lt.appsas.bean.programele.data.remote.auth.AuthRepositoryImpl
+import eif.viko.lt.appsas.bean.programele.data.remote.auth.AuthApi
+import eif.viko.lt.appsas.bean.programele.data.remote.group_posts.GroupPostsApi
+import eif.viko.lt.appsas.bean.programele.data.remote.group_posts.GroupPostsRepositoryImpl
 import eif.viko.lt.appsas.bean.programele.domain.repositories.AuthRepository
+import eif.viko.lt.appsas.bean.programele.domain.repositories.GroupPostsRepository
+import eif.viko.lt.appsas.bean.programele.domain.utils.OAuthInterceptor
+import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
@@ -27,25 +32,53 @@ object AppModule {
     @Singleton
     fun providesRetrofitBuilder(): Retrofit.Builder {
         return Retrofit.Builder()
-            .baseUrl(PersonalBackendApi.BASE_URL)
+            .baseUrl(AuthApi.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
-    }
-    @Provides
-    @Singleton
-    fun providesGoogleSignInService(retrofitBuilder: Retrofit.Builder): PersonalBackendApi {
-        return retrofitBuilder
-            .build()
-            .create(PersonalBackendApi::class.java)
     }
 
     @Provides
     @Singleton
-    fun provideAuthRepository(
-        api: PersonalBackendApi,
-    ): AuthRepository {
+    fun providesGoogleSignInService(retrofitBuilder: Retrofit.Builder): AuthApi {
+        return retrofitBuilder
+            .build()
+            .create(AuthApi::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideAuthRepository(api: AuthApi): AuthRepository {
         return AuthRepositoryImpl(api)
     }
 
+    // Group Post api tik autorizuotiems vartotojams (t.y. kurie turi JWT tokeną)
+    @Provides
+    @Singleton
+    fun provideOkHTTPClient(authInterceptor: OAuthInterceptor): OkHttpClient {
+        return OkHttpClient.Builder()
+            .addInterceptor(authInterceptor)
+            .build()
+    }
+
+    @Provides
+    @Singleton
+    fun providesGroupPostsApi(
+        retrofitBuilder: Retrofit.Builder,
+        okHttpClient: OkHttpClient
+    ): GroupPostsApi {
+        return retrofitBuilder
+            .client(okHttpClient)
+            .build()
+            .create(GroupPostsApi::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun providesGroupPostsRepository(api: GroupPostsApi): GroupPostsRepository {
+        return GroupPostsRepositoryImpl(api)
+    }
+
+
+    // GROUP POST OBJEKTŲ REALIZACIJA PABAIGA ------------------------------------------
 
 
 //    @Provides

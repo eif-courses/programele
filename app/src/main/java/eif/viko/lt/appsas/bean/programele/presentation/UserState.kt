@@ -1,7 +1,7 @@
 package eif.viko.lt.appsas.bean.programele.presentation
 
-import eif.viko.lt.appsas.bean.programele.data.ProductDto
-import eif.viko.lt.appsas.bean.programele.data.UserDto
+import eif.viko.lt.appsas.bean.programele.data.remote.auth.ProductDto
+import eif.viko.lt.appsas.bean.programele.data.remote.auth.UserDto
 
 data class UserState(
     val users: List<UserDto> = emptyList(),
