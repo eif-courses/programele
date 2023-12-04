@@ -33,6 +33,8 @@ import eif.viko.lt.appsas.bean.programele.domain.utils.PreferencesManager
 import eif.viko.lt.appsas.bean.programele.domain.utils.ServiceLocator
 import eif.viko.lt.appsas.bean.programele.ui.theme.ProgrameleTheme
 import eif.viko.lt.appsas.bean.programele.domain.utils.Route
+import eif.viko.lt.appsas.bean.programele.presentation.auth.SignInGoogleScreen
+import eif.viko.lt.appsas.bean.programele.presentation.group_posts.SearchScreen
 
 // https://www.youtube.com/watch?v=QpaTcx2nnHM
 @AndroidEntryPoint

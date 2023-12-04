@@ -1,5 +1,6 @@
 package eif.viko.lt.appsas.bean.programele.data.remote.group_posts
 
+import retrofit2.http.Body
 import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.Header
@@ -12,25 +13,25 @@ interface GroupPostsApi {
     suspend fun getGroups(): List<GroupDto>
 
     @POST("api/groups")
-    suspend fun createNewGroupPost(@Header("Authorization") token: String): GroupPostDto
+    suspend fun createNewGroupPost(@Body group: GroupDto): GroupPostDto
 
     @GET("api/groups/{group_id}/posts")
-    suspend fun getGroupPostsByGroupID(@Header("Authorization") token: String): List<GroupPostDto>
+    suspend fun getGroupPostsByGroupID(): List<GroupPostDto>
 
     @POST("api/groups/members")
-    suspend fun joinToGroup(@Header("Authorization") token: String): GroupDto
+    suspend fun joinToGroup(): GroupDto
     @DELETE("api/groups/{group_id}/users/{user_id}")
-    suspend fun leaveGroup(@Header("Authorization") token: String): GroupDto
+    suspend fun leaveGroup(): GroupDto
     @POST("api/groups/likes")
-    suspend fun likeGroupPost(@Header("Authorization") token: String): GroupPostDto
+    suspend fun likeGroupPost(): GroupPostDto
     @DELETE("api/groups/likes")
-    suspend fun unlikeGroupPost(@Header("Authorization") token: String): GroupPostDto
+    suspend fun unlikeGroupPost(): GroupPostDto
     @GET("api/groups/posts/{post_id}/comments")
-    suspend fun getCommentsByPostID(@Header("Authorization") token: String): List<GroupCommentDto>
+    suspend fun getCommentsByPostID(): List<GroupCommentDto>
     @POST("api/groups/comments")
-    suspend fun commentGroupPost(@Header("Authorization") token: String): GroupCommentDto
+    suspend fun commentGroupPost(): GroupCommentDto
     @DELETE("api/groups/comments")
-    suspend fun deleteGroupComment(@Header("Authorization") token: String): GroupCommentDto
+    suspend fun deleteGroupComment(): GroupCommentDto
 
     //    groups := router.PathPrefix("/api/groups").Subrouter()
 //

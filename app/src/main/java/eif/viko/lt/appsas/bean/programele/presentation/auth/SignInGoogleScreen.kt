@@ -1,4 +1,4 @@
-package eif.viko.lt.appsas.bean.programele.presentation
+package eif.viko.lt.appsas.bean.programele.presentation.auth
 
 import android.util.Log
 import android.widget.Toast

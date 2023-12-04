@@ -14,8 +14,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import eif.viko.lt.appsas.bean.programele.data.remote.auth.ProductDto
-
-
+import eif.viko.lt.appsas.bean.programele.presentation.auth.AuthViewModel
 
 
 @Composable

@@ -1,4 +1,4 @@
-package eif.viko.lt.appsas.bean.programele.presentation
+package eif.viko.lt.appsas.bean.programele.presentation.group_posts
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Arrangement
@@ -9,16 +9,13 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.staggeredgrid.LazyVerticalStaggeredGrid
 import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridCells
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
-import androidx.compose.material3.CardElevation
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -60,13 +57,13 @@ fun SearchScreen(navController: NavController, viewModel: GroupPostsViewModel = 
                         Modifier.fillMaxWidth()
                     ) {
                         
-                        AsyncImage(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .wrapContentHeight(),
-                            model = "https://picsum.photos/64",
-                            contentScale = ContentScale.Crop,
-                            contentDescription = null)
+//                        AsyncImage(
+//                            modifier = Modifier
+//                                .fillMaxWidth()
+//                                .wrapContentHeight(),
+//                            model = "https://picsum.photos/64",
+//                            contentScale = ContentScale.Crop,
+//                            contentDescription = null)
                         Text(
                             text = state.groups[index].Name,
                             fontSize = 24.sp,

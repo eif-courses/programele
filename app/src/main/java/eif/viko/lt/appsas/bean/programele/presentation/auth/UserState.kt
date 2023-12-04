@@ -1,4 +1,4 @@
-package eif.viko.lt.appsas.bean.programele.presentation
+package eif.viko.lt.appsas.bean.programele.presentation.auth
 
 import eif.viko.lt.appsas.bean.programele.data.remote.auth.ProductDto
 import eif.viko.lt.appsas.bean.programele.data.remote.auth.UserDto

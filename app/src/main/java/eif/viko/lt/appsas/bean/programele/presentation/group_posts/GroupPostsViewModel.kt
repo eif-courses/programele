@@ -1,4 +1,4 @@
-package eif.viko.lt.appsas.bean.programele.presentation
+package eif.viko.lt.appsas.bean.programele.presentation.group_posts
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
