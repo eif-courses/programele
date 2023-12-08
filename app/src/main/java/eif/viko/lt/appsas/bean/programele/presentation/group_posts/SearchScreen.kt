@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.staggeredgrid.LazyVerticalStaggeredGrid
 import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridCells
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -29,6 +30,7 @@ import coil.compose.AsyncImage
 fun SearchScreen(navController: NavController, viewModel: GroupPostsViewModel = hiltViewModel()) {
 
     val state = viewModel.state
+
 
     println(state.groups)
 
@@ -73,5 +75,10 @@ fun SearchScreen(navController: NavController, viewModel: GroupPostsViewModel = 
                 }
             }
         }
+    }
+    Button(onClick = {
+        viewModel.onEvent(GroupPostsUiEvent.JoinToGroup(5, 1))
+    }) {
+        Text(text = "Join")
     }
 }

@@ -1,10 +1,13 @@
 package eif.viko.lt.appsas.bean.programele.data.remote.group_posts
 
+import eif.viko.lt.appsas.bean.programele.domain.models.group_posts.GroupPost
+import eif.viko.lt.appsas.bean.programele.domain.models.group_posts.GroupPostJoin
 import retrofit2.http.Body
 import retrofit2.http.DELETE
 import retrofit2.http.GET
-import retrofit2.http.Header
 import retrofit2.http.POST
+import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface GroupPostsApi {
     // TODO Pabaigti pildyti sias funkcijas
@@ -12,20 +15,21 @@ interface GroupPostsApi {
     @GET("api/groups")
     suspend fun getGroups(): List<GroupDto>
 
-    @POST("api/groups")
-    suspend fun createNewGroupPost(@Body group: GroupDto): GroupPostDto
+    @POST("api/groups/posts")
+    suspend fun createNewGroupPost(@Body group: GroupPost)
 
     @GET("api/groups/{group_id}/posts")
-    suspend fun getGroupPostsByGroupID(): List<GroupPostDto>
+    suspend fun getGroupPostsByGroupID(@Path("group_id") groupId: Int): List<GroupPost>
 
     @POST("api/groups/members")
-    suspend fun joinToGroup(): GroupDto
+    suspend fun joinToGroup(@Body join: GroupPostJoin)
     @DELETE("api/groups/{group_id}/users/{user_id}")
-    suspend fun leaveGroup(): GroupDto
+    suspend fun leaveGroup(@Path("group_id") group_id: Int,
+                           @Path("user_id") user_id: Int)
     @POST("api/groups/likes")
-    suspend fun likeGroupPost(): GroupPostDto
+    suspend fun likeGroupPost(): GroupPost
     @DELETE("api/groups/likes")
-    suspend fun unlikeGroupPost(): GroupPostDto
+    suspend fun unlikeGroupPost(): GroupPost
     @GET("api/groups/posts/{post_id}/comments")
     suspend fun getCommentsByPostID(): List<GroupCommentDto>
     @POST("api/groups/comments")

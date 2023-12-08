@@ -1,6 +1,5 @@
 package eif.viko.lt.appsas.bean.programele.presentation.group_posts
 
-import androidx.compose.ui.tooling.data.Group
 import eif.viko.lt.appsas.bean.programele.data.remote.group_posts.GroupDto
 
 data class GroupPostState(
